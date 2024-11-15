@@ -1,0 +1,88 @@
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2> Abstract Reasoning Task </h2>
+    <p> Dear participant,
+        This test is about finding rules in abstract patterns and to complete them in a logical way. Each task shows an
+        incomplete figure. The patterns you will see follow rules which may apply to a row, a column or to a diagonal.
+        They may apply to the figure as a whole or to parts of it only. They may involve addition, subtraction, the
+        alignment of figures or single components. Only one of the six pieces is the correct one required to complete
+        the design.
+        It is your task to select the piece, which completes the figure. Each task needs to be completed within 2:00 minutes.
+    </p>
+
+    <h4> Example 1</h4>
+
+    <p> Which piece is the one required to complete the design?
+        (Select the correct piece and then click "Next") 
+    
+    </p>
+
+    <div style="text-align: center;">
+        <img style="width:50%;" src="{{ static 'global/images/Example1br.png'}}">
+    </div>
+
+   
+
+
+         <table style="margin-top:40px;" class="radiotable">
+            <tr>
+                {{ for choice in form.raven_ex1.choices }}
+                {{if choice == '6'}}
+                <td style="text-align: center;">  <img style="width:105%; border-style:solid; border-width:0.7px;"  class="choiceOption" id="Sol_{{choice}}"  src = /static/global/images/Example1_Sol_{{choice}}r.png> </td>
+                {{else}}
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption standard" id="Sol_{{choice}}" src =  /static/global/images/Example1_Sol_{{choice}}r.png> </td>
+                {{endif}}
+            {{ endfor }}
+
+            </tr>
+   
+            <tr>
+                {{ for choice in form.raven_ex1 }}
+                   <td style="text-align: center;display:none;">{{ choice }}</td>
+               {{ endfor }}
+            </tr>
+         </table>
+
+
+
+</div>
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" id="consent-next">Next</button>
+
+{% endblock %}
+
+
+
+{{block scripts}}
+<script>
+$(document).ready(function () {
+       
+    $('.choiceOption').click(function() {forminputs.raven_ex1.value = $(this)[0].id.slice(-1) ;
+        $('.choiceOption.standard').css("border-style","none"); $(this).css("border-style","solid").css("border-color", "red").css("border-width", "1")
+    ;
+      })
+
+    //   $('.form-check-input').click(function() {
+    //     console.log($(this));
+    //     $('.choiceOption.standard').css("border-style","none"); $(this).css("border-style","solid").css("border-color", "red").css("border-width", "1")
+    // ;
+    //   })
+
+    
+
+
+
+});
+
+
+</script>
+
+
+{{endblock}}

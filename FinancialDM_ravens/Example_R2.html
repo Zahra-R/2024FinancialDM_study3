@@ -1,0 +1,45 @@
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2> Example 2 Solution</h2>
+    <p> The fourth (4th) piece is the only correct one. </p> <p>
+
+        In the task subtracting elements from each other was required. The elements in the second position have to be subtracted from the elements in the first column, i.e. in the third column those elements need to be present which are situated in the first column, but not in the second one. The square frame is not considered and remains intact. 
+        
+    </p>
+
+
+    <div style="text-align: center;">
+        <img style="width:50%;" src="{{ static 'global/images/Example2r.png'}}">
+    </div>
+
+   
+
+
+         <table style="margin-top:40px;" class="radiotable">
+            <tr>
+                {{ for choice in [1,2,3,4,5,6] }}
+                {{if choice == 4}}
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption" id="Sol_{{choice}}" src =  /static/global/images/Example2_Sol_{{choice}}br.png> </td>
+                {{else}}
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption" id="Sol_{{choice}}" src =  /static/global/images/Example2_Sol_{{choice}}r.png> </td>
+                {{endif}}
+            {{ endfor }}
+
+            </tr>
+   
+         </table>
+
+
+
+</div>
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" id="consent-next">Next</button>
+
+{% endblock %}

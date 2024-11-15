@@ -1,0 +1,106 @@
+[
+ {
+   "sid": 1,
+   "sid_seb": 1,
+   "moA": 22,
+   "coA": 22,
+   "moB": 58,
+   "coB": 58
+ },
+ {
+   "sid": 2,
+   "sid_seb": 2,
+   "moA": 37,
+   "coA": 37,
+   "moB": 50,
+   "coB": 49
+ },
+ {
+   "sid": 3,
+   "sid_seb": 4,
+   "moA": 37,
+   "coA": 37,
+   "moB": 49,
+   "coB": 50
+ },
+ {
+   "sid": 4,
+   "sid_seb": 6,
+   "moA": 36,
+   "coA": 27,
+   "moB": 45,
+   "coB": 36
+ },
+ {
+   "sid": 5,
+   "sid_seb": 7,
+   "moA": 25,
+   "coA": 29,
+   "moB": 46,
+   "coB": 50
+ },
+ {
+   "sid": 6,
+   "sid_seb": 11,
+   "moA": 35,
+   "coA": 35,
+   "moB": 44,
+   "coB": 38
+ },
+ {
+   "sid": 7,
+   "sid_seb": 12,
+   "moA": 23,
+   "coA": 23,
+   "moB": 38,
+   "coB": 47
+ },
+ {
+   "sid": 8,
+   "sid_seb": 15,
+   "moA": 28,
+   "coA": 22,
+   "moB": 52,
+   "coB": 38
+ },
+ {
+   "sid": 9,
+   "sid_seb": 16,
+   "moA": 22,
+   "coA": 28,
+   "moB": 38,
+   "coB": 52
+ },
+ {
+   "sid": 10,
+   "sid_seb": 17,
+   "moA": 28,
+   "coA": 22,
+   "moB": 43,
+   "coB": 47
+ },
+ {
+   "sid": 11,
+   "sid_seb": 18,
+   "moA": 22,
+   "coA": 28,
+   "moB": 47,
+   "coB": 43
+ },
+ {
+   "sid": 12,
+   "sid_seb": 79,
+   "moA": 31,
+   "coA": 49,
+   "moB": 40,
+   "coB": 40
+ },
+ {
+   "sid": -99,
+   "sid_seb": -99,
+   "moA": 45,
+   "coA": 40,
+   "moB": 40,
+   "coB": 45
+ }
+]

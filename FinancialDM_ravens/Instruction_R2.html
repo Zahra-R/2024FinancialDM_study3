@@ -1,0 +1,67 @@
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>  Example 2   </h2>
+
+    <p> Which piece is the one required to complete the design?
+        (Select the correct piece and then click "Next") 
+    
+    </p>
+
+    <div style="text-align: center;">
+        <img style="width:50%;" src="{{ static 'global/images/Example2r.png'}}">
+    </div>
+
+   
+
+
+         <table style="margin-top:40px;" class="radiotable">
+            <tr>
+                {{ for choice in [1,2,3,4,5,6] }}
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption" id="Sol_{{choice}}" src =  /static/global/images/Example2_Sol_{{choice}}r.png> </td>
+             
+            {{ endfor }}
+
+            </tr>
+   
+            <tr>
+                {{ for choice in form.raven_ex2 }}
+                   <td style="text-align: center;display:none;">{{ choice }}</td>
+               {{ endfor }}
+            </tr>
+         </table>
+
+
+
+</div>
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" id="consent-next">Next</button>
+
+{% endblock %}
+
+
+{{block scripts}}
+<script>
+$(document).ready(function () {
+       
+    $('.choiceOption').click(function() {forminputs.raven_ex2.value = $(this)[0].id.slice(-1) ;
+        $('.choiceOption').css("border-style","none"); $(this).css("border-style","solid").css("border-color", "red").css("border-width", "1")
+    ;
+      })
+
+    
+
+
+
+});
+
+
+</script>
+
+{{endblock}}

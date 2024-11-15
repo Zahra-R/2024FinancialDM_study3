@@ -1,0 +1,230 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+<style type="text/css">
+.otree-body {
+    max-width: 1370px;
+}
+
+table {
+    display: inline-table;
+    width: 150px;
+   /*  border-style: none solid none solid;
+    border-width: 5px;
+    border-color: black; */
+}
+
+table th, td {
+    padding: 7px 0;
+    line-height: 1.1;
+}
+
+.roww {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.singlerow {
+    height: 60.8px;
+}
+
+
+    .stimulus {
+        border: 3px solid #000;
+        text-align: center;
+        margin: auto;
+        padding: 2vh 0vw;
+        vertical-align: middle;
+        width: 320px;
+}
+
+    .field-choice {
+        display: flex;
+    }
+
+    .form-check-inline {
+        display: block;
+        margin: 0;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-basis: 0;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .form-check-label {
+        display: block;
+        width: 100%;
+    }
+
+    .form-check-inline .form-check-input {
+        margin-right: 0;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block title %}
+Your task
+{% endblock %}
+
+{% block content %}
+
+
+
+<p style="padding-bottom: 20pt;"> In this block your task is to decide between two options that have consequences for your monetary bonus and the environment. The monetary outcome is always certain. The environmental outcome can be risky. This means that for the option with a risky environmental outcome, there are two events that can occur with displayed probabilities and that differ in their consequences for the carbon emissions. 
+</p>
+<p>
+    Here you see an examplary decision screen. 
+</p>
+
+
+<div class="mycont">
+
+    <div class="roww">
+        <div class="OptionA">
+        <div class="col-6 stimulus">
+            <div id="left-stimulus">
+                <table id="moneyTable_OptA" style="margin-top:30px;">
+                    <tbody>
+                        <tr class="leftsidetable" style=" font-weight: bold; background-color: grey; color: white;">
+                            <th > Monetary <br> Bonus </th>
+                        </tr>
+                        <tr class="singlerow">
+                            <td> 32$</td>
+                    </tr>
+                    </tbody>
+                </table>
+    
+                <table id="carbonTable_OptA" style="margin-top: 30px;">
+                    <tbody>
+                        <tr class="leftsidetable" style=" font-weight: bold; background-color: grey; color: white;">
+                            <th> Carbon <br> Emissions</th>
+                        </tr>
+                        <tr class="singlerow">
+                            <td> 29 lbs. CO2</td>
+                        </tr>
+
+                    </tbody>
+    
+                </table>
+            </div>
+            
+
+            <p style="margin-top: 30px;"> Press <i>f</i> for left option </p>
+    
+           </div>
+          
+        </div>
+
+    
+        <div class="OptionB">
+        <div class="col-6 stimulus">
+            <div id="right-stimulus">
+                    <table id="moneyTable_OptB" style="margin-top:30px;">
+                    <tbody>
+                            <tr class="rightsidetable" style=" font-weight: bold; background-color: grey; color: white;">
+                                <th> Monetary <br> Bonus</th>
+                        </tr>
+                            <tr class="singlerow">
+                                <td> 22$</td>
+                        </tr>
+                            
+                    </tbody>
+                </table>
+        
+                    <table id="carbonTable_OptB" style="margin-top: 30px;">
+                    <tbody>
+                            <tr class="rightsidetable" style=" font-weight: bold; background-color: grey; color: white;">
+                            <th colspan = "2"> Carbon <br> Emissions </th>
+                            <tr>
+                                <td> 62%</td>
+                                <td> 10 lbs. CO2</td>
+                            </tr>
+                            <tr class="row-secondary-outcomeB">
+                                <td> 38%</td>
+                                <td> 21 lbs. CO2</td>
+                            </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        
+        
+            <p style="margin-top: 30px;"> Press <i>j</i> for right option </p>
+        
+               </div>
+    
+        </div>
+    </div>
+</div>
+
+
+
+<p style="padding-top: 20pt;"> You see the two options with the description of their carbon and monetary outcomes. The monetary outcome is always certain. For one of the options, the emission outcome is risky. The percentages indicate the probability with which either of the two possible risky outcomes will occur. </p>
+
+<p> To better understand the consequences, take into account that 1 lbs. CO2 corresponds to approximately 1.1 miles of a car drive with an average car. </p>
+
+<p> Your monetary bonus is displayed in study dollars and will be exchanged to British pounds according to £1 equals study $25.</p>
+
+<p> To choose an option use your keyboard and Press <i>f</i> for the left option and <i>j</i> for the right option.  </p>
+
+<p> <b> Comprehension Questions </b></p>
+
+{{ formfields }}
+
+
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" id="consent-next">Next</button>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    var carbonLeft = "{{carbonLeft}}"
+    
+    function switchCarbonLeft() {
+        div1 = $('#moneyTable_OptA');
+        div2 = $('#carbonTable_OptA');
+
+        tdiv1 = div1.clone(true);
+        tdiv2 = div2.clone(true);
+
+        div1.replaceWith(tdiv2);
+        div2.replaceWith(tdiv1);
+
+
+        div3 = $('#moneyTable_OptB');
+        div4 = $('#carbonTable_OptB');
+
+        tdiv3 = div3.clone(true);
+        tdiv4 = div4.clone(true);
+
+        div3.replaceWith(tdiv4);
+        div4.replaceWith(tdiv3);
+
+        choiceListener.init();
+        //jQuery(document).on('keydown', console.log("now"), console.log(""), choiceListener.keyboardInput);
+        //jQuery('#left-stimulus').on('click', choiceListener.AClick());
+        //jQuery('#right-stimulus').on('click', choiceListener.BClick());
+    }
+
+
+        jQuery(document).ready(function () {
+
+
+            if (carbonLeft == "True") {
+                switchCarbonLeft()
+            }
+
+
+        });
+
+
+
+</script>
+
+{% endblock %}
+

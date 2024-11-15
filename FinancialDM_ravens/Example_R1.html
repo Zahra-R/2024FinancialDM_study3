@@ -1,0 +1,51 @@
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2> Example 1 Solution</h2>
+    <p> The first piece is the only correct one.
+
+        The rule which defines the figure is: The line and the black rectangle systematically vary: the line move clockwise in each row and the black rectangle move clockwise in each column and row, i.e. it has to be situated in the center of the lower part in the missing piece. 
+        
+        Click 'Next' to go to the second sample task. 
+        
+    </p>
+
+
+    <div style="text-align: center;">
+        <img style="width:50%;" src="{{ static 'global/images/Example1ar.png'}}">
+    </div>
+
+   
+
+
+         <table style="margin-top:40px;" class="radiotable">
+            <tr>
+                {{ for choice in  [1, 2, 3, 4, 5, 6] }}
+                {{if choice == 1}}
+                
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption" id="Sol_{{choice}}" src =  /static/global/images/Example1_Sol_{{choice}}br.png>   </td>
+                {{elif choice == 6}}
+                <td style="text-align: center;">  <img style="width:100%; border-style:solid; border-width:0.7px;" src = /static/global/images/Example1_Sol_{{choice}}r.png>  </td>
+                {{else}}
+                <td style="text-align: center;"> <img style="width:60%;" class="choiceOption" id="Sol_{{choice}}" src =  /static/global/images/Example1_Sol_{{choice}}r.png>  </td>
+                {{endif}}
+            {{ endfor }}
+
+            </tr>
+   
+         </table>
+
+
+
+</div>
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" id="consent-next">Next</button>
+
+{% endblock %}
+
